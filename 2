@@ -1,0 +1,84 @@
+define(['pipAPI', 'https://cdn.jsdelivr.net/gh/baranan/minno-tasks@0.*/IAT/qualtrics/quiat9.js'], function(APIConstructor, iatExtension){
+    var API = new APIConstructor();
+    var baseURL = 'https://TU_USUARIO.github.io/TU_REPOSITORIO/'; // <-- CAMBIA ESTO
+
+    var posWords = API.shuffle([
+        'Amor', 'Alegría', 'Amigo', 'Placer', 'Adorar', 'Alegre', 'Amistad', 'Gozoso',
+        'Sonriente', 'Apreciar', 'Excelente', 'Contento', 'Alegre', 'Espectacular',
+        'Atractivo', 'Deleite', 'Emoción', 'Risa', 'Atractivo', 'Encantador',
+        'Fabuloso', 'Glorioso', 'Agradable', 'Hermoso', 'Fantástico', 'Feliz',
+        'Encantador', 'Fantástico', 'Celebrar', 'Disfrutar', 'Magnífico', 'Triunfar'
+    ]);
+
+    var negWords = API.shuffle([
+        'Abuso', 'Dolor', 'Veneno', 'Tristeza', 'Dolor', 'Despreciar', 'Fracaso',
+        'Desagradable', 'Enojado', 'Detesto', 'Horrible', 'Negativo', 'Feo', 'Sucio',
+        'Asqueroso', 'Malvado', 'Podrido', 'Molesto', 'Desastre', 'Horrible',
+        'Desprecio', 'Horrible', 'Disgusto', 'Odio', 'Humillar', 'Egoísta', 'Trágico',
+        'Molesto', 'Odio', 'Dañino', 'Repugnante', 'Asqueroso'
+    ]);
+
+    return iatExtension({
+        category1: {
+            name: 'Gente gorda',
+            title: {
+                media: {word: 'Gente gorda'},
+                css: {color:'#31940F','font-size':'1.8em'},
+                height: 4
+            },
+            stimulusMedia: [
+                {image: 'fatman1.jpg'}, {image: 'fatman3.jpg'}, {image: 'fatman4.jpg'},
+                {image: 'fatman5.jpg'}, {image: 'fatman6.jpg'},
+                {image: 'fatwoman1.jpg'}, {image: 'fatwoman2.jpg'}, {image: 'fatwoman3.jpg'},
+                {image: 'fatwoman4.jpg'}, {image: 'fatwoman6.jpg'}
+            ],
+            stimulusCss: {color:'#31940F','font-size':'2.3em'}
+        },
+        category2: {
+            name: 'Personas delgadas',
+            title: {
+                media: {word: 'Personas delgadas'},
+                css: {color:'#31940F','font-size':'1.8em'},
+                height: 4
+            },
+            stimulusMedia: [
+                {image: 'thinman1.jpg'}, {image: 'thinman2.jpg'}, {image: 'thinman3.jpg'},
+                {image: 'thinman5.jpg'}, {image: 'thinman6.jpg'},
+                {image: 'thinwoman1.jpg'}, {image: 'thinwoman2.jpg'}, {image: 'thinwoman3.jpg'},
+                {image: 'thinwoman5.jpg'}, {image: 'thinwoman6.jpg'}
+            ],
+            stimulusCss: {color:'#31940F','font-size':'2.3em'}
+        },
+        attribute1: {
+            name: 'Malas palabras',
+            title: {
+                media: {word: 'Malas palabras'},
+                css: {color:'#0000FF','font-size':'1.8em'},
+                height: 4
+            },
+            stimulusMedia: [
+                {word: negWords[0]}, {word: negWords[1]}, {word: negWords[2]},
+                {word: negWords[3]}, {word: negWords[4]}, {word: negWords[5]},
+                {word: negWords[6]}, {word: negWords[7]}
+            ],
+            stimulusCss: {color:'#0000FF','font-size':'2.3em'}
+        },
+        attribute2: {
+            name: 'Buenas palabras',
+            title: {
+                media: {word: 'Buenas palabras'},
+                css: {color:'#0000FF','font-size':'1.8em'},
+                height: 4
+            },
+            stimulusMedia: [
+                {word: posWords[0]}, {word: posWords[1]}, {word: posWords[2]},
+                {word: posWords[3]}, {word: posWords[4]}, {word: posWords[5]},
+                {word: posWords[6]}, {word: posWords[7]}
+            ],
+            stimulusCss: {color:'#0000FF','font-size':'2.3em'}
+        },
+        base_url: {
+            image: baseURL
+        }
+    });
+});
